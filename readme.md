@@ -17,42 +17,42 @@ This README provides an overview of the project, its features, and instructions 
 
 1. Clone the repository:
 
-   ```shell
-   git clone <repository-url>
-   ```
+  ```shell
+  git clone <repository-url>
+  ```
 
 2. Navigate to the project directory:
 
-   ```shell
-   cd <project-directory>
-   ```
+  ```shell
+  cd <project-directory>
+  ```
 
 3. Install dependencies:
 
-   ```shell
-   npm install
-   ```
+  ```shell
+  npm install
+  ```
 
 4. Start the microservices using Docker:
 
-   - Build Docker images:
+  - Build Docker images:
 
-     ```shell
-     docker-compose build
-     ```
+    ```shell
+    docker-compose build
+    ```
 
-   - Start Docker containers:
+  - Start Docker containers:
 
-     ```shell
-     docker-compose up
-     ```
+    ```shell
+    docker-compose up
+    ```
 
 5. Access the application:
-   - Frontend UI: Open your browser and visit `http://localhost:3000`
-   - Backend APIs:
-     - Kitchen Service: `http://localhost:4000`
-     - Food Storage Service: `http://localhost:5000`
-     - Farmers Market Service: `http://localhost:6000`
+  - Frontend UI: Open your browser and visit `http://localhost:3000`
+  - Backend APIs:
+    - Kitchen Service: `http://localhost:4000`
+    - Food Storage Service: `http://localhost:5000`
+    - Farmers Market Service: `http://localhost:6000`
 
 ## Usage
 
