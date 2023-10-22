@@ -1,0 +1,9 @@
+<header>
+  <nav>
+    <ul class="menu">
+      <li *ngFor="let btn of btns">
+        <a [routerLink]="btn.path" routerLinkActive="active">{{ btn.label }}</a>
+      </li>
+    </ul>
+  </nav>
+</header>
