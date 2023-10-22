@@ -4,6 +4,7 @@ import { OrderDishComponent } from './order-dish.component';
 import { OrderService } from '../service/order.service';
 import { of, throwError } from 'rxjs';
 import { Dish } from 'src/interfaces/interfaces';
+import { mockOrderService } from 'src/mocks/mocks';
 
 describe('OrderDishComponent', () => {
   let component: OrderDishComponent;
@@ -14,7 +15,12 @@ describe('OrderDishComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [OrderDishComponent],
       imports: [HttpClientTestingModule],
-      providers: [OrderService],
+      providers: [
+       {
+         provide: OrderService,
+         useValue: mockOrderService
+        }
+       ],
     }).compileComponents();
   });
 

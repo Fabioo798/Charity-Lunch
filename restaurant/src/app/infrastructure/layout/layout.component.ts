@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuItems } from 'src/interfaces/interfaces';
 
 @Component({
   selector: 'app-layout',
