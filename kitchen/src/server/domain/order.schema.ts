@@ -1,5 +1,5 @@
 import { Schema, SchemaTypes, model } from "mongoose";
-import Order from "../../order/domain/order.model";
+import Order from "../../order/domain/order.model.js";
 
 
 const orderSchema = new Schema<Order>({
@@ -8,7 +8,7 @@ const orderSchema = new Schema<Order>({
   type: SchemaTypes.ObjectId,
   ref: 'Dish'
  },
- timestamp: {
+ timeStamp: {
       type: Date,
       required: true
  },
