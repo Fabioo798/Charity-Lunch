@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Ingredient from "../../ingredient/domain/ingredient.model";
+import Ingredient from "../../ingredient/domain/ingredient.model.js";
 
 export default class Dish {
  
