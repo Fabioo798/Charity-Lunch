@@ -1,4 +1,4 @@
-import Order from "./order.model";
+import Order from "./order.model.js";
 
 export default interface OrderRepo {
  create: (order: Order) => Promise<void>;

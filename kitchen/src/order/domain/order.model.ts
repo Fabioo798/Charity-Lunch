@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 
-import Dish from "../../dish/domain/dish.model";
+import Dish from "../../dish/domain/dish.model.js";
 
 export enum OrderState {
   InProgress = "in-progress",
@@ -12,7 +12,7 @@ export default class Order {
  constructor(
   public id: string,
   public dish: Dish,
-  public timestamp: Date,
+  public timeStamp: Date,
   public state: OrderState
  ) {}
 } 
