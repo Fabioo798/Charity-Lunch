@@ -19,7 +19,7 @@ const mockOrder = {
    name: 'test',
    ingredients: ['peper', 'test2', 'test3'],
   },
-  timeStamp: Date.arguments,
+  timeStamp: new Date(),
   state: OrderState.InProgress,
 } as Order;
 let popValue: unknown;
