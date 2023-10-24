@@ -24,6 +24,11 @@ export default class OrderMongoRepo implements OrderRepo {
     return response as Order;
   }
 
+  async findAll(): Promise<Order[]> {
+    const response = await this.orderModel.find().populate('dish', 'ingredients');
+    return response;
+  }
+
   async delete(id: string): Promise<void> {
     await this.orderModel.findByIdAndDelete(id);
   }

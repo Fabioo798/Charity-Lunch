@@ -41,6 +41,8 @@ describe('Given the OrderMongoRepo', () => {
     });
   });
 
+  
+
   describe('When create method is called', () => {
     test('Then it should create an order', async () => {
       (mockModel.create as jest.Mock).mockResolvedValue(mockOrder);
@@ -68,6 +70,17 @@ describe('Given the OrderMongoRepo', () => {
       expect(mockModel.findById).toHaveBeenCalled();
     });
   });
+
+  describe('When findAll method is called', () => {
+    test('Then it should find an Order', async () => {
+      (mockModel.find as jest.Mock).mockImplementation(mockPopulateExec);
+
+      await repo.findAll();
+
+      expect(mockModel.find).toHaveBeenCalled();
+    });
+  });
+
   describe('When delete method is called', () => {
     test('Then it should delete an order', async () => {
       (mockModel.findByIdAndDelete as jest.Mock).mockResolvedValue(mockOrder);
