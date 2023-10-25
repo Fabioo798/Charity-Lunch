@@ -10,12 +10,15 @@ const mockRepo = {
 const mockOrder = {
   id: '2',
   dish: {
-   id: '1',
    name: 'test',
-   ingredients: ['peperoni', 'test2', 'test3'],
-  },
+   ingredients: [
+    {name: 'peperoni', quantity: 1},
+    {name: 'peperoni1', quantity: 1},
+  ],
+ },
   timeStamp: new Date(),
   state: OrderState.InProgress,
+
 } as Order;
 
 describe('Given the OrderDeleter class', () => {
@@ -28,7 +31,7 @@ describe('Given the OrderDeleter class', () => {
   });
 
   describe('When the method execute is called', () => {
-    test('Then the create user repo method should called', async () => {
+    test('Then the create dish repo method should called', async () => {
       (mockRepo.delete as jest.Mock).mockResolvedValue(mockOrder);
 
       await repo.execute('2');

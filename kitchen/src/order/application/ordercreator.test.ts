@@ -1,6 +1,6 @@
 import Order, { OrderState } from '../domain/order.model.js';
 import OrderRepo from '../domain/order.model.repo.js';
-import UserCreator from './ordercreator.js';
+import OrderCreator from './ordercreator.js';
 
 const mockRepo = {
   create: jest.fn(),
@@ -9,25 +9,28 @@ const mockRepo = {
 const mockOrder = {
   id: '2',
   dish: {
-   id: '1',
    name: 'test',
-   ingredients: ['peperoni', 'test2', 'test3'],
-  },
+   ingredients: [
+    {name: 'peperoni', quantity: 1},
+    {name: 'peperoni1', quantity: 1},
+  ],
+ },
   timeStamp: new Date(),
   state: OrderState.InProgress,
+
 } as Order;
 
-describe('Given the UserCreator class', () => {
-  const repo = new UserCreator(mockRepo);
+describe('Given the OrderCreator class', () => {
+  const repo = new OrderCreator(mockRepo);
 
   describe('when is it called', () => {
     test('Then it should be instantiated', () => {
-      expect(repo).toBeInstanceOf(UserCreator);
+      expect(repo).toBeInstanceOf(OrderCreator);
     });
   });
 
   describe('When the method execute is called', () => {
-    test('Then the create user repo method should called', async () => {
+    test('Then the create Order repo method should called', async () => {
       (mockRepo.create as jest.Mock).mockResolvedValue(mockOrder);
 
       await repo.execute(mockOrder);

@@ -10,10 +10,13 @@ const mockRepo = {
 const mockOrder = {
   id: '2',
   dish: {
-   id: '1',
+   id: '2',
    name: 'test',
-   ingredients: ['peperoni', 'test2', 'test3'],
-  },
+   ingredients: [
+    {name: 'peperoni', quantity: 1},
+    {name: 'peperoni1', quantity: 1},
+  ],
+ },
   timeStamp: new Date(),
   state: OrderState.InProgress,
 } as Order;
@@ -28,7 +31,7 @@ describe('Given the OrderUpdater class', () => {
   });
 
   describe('When the method execute is called', () => {
-    test('Then the search user repo method should called', async () => {
+    test('Then the search order repo method should called', async () => {
       (mockRepo.update as jest.Mock).mockResolvedValue(mockOrder);
 
       await repo.execute(mockOrder);
