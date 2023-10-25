@@ -1,18 +1,23 @@
 import { NextFunction, Request, Response } from "express";
-import { dishes } from "../../../dish/domain/recipes.js";
 import { OrderState } from "../../../order/domain/order.model.js";
-import Dish from "../../../dish/domain/dish.model.js";
+import { DishModel } from "../../domain/dish.schema.js";
 
 export class Interceptors {
  
- 
- dishInterceptor(req: Request, res: Response, next: NextFunction) {
-  const dish: Dish = dishes[Math.floor(Math.random() * dishes.length)];
-  req.body.dish = dish;
-  req.body.timeStamp = new Date();
-  req.body.state = OrderState.InProgress;
-  
-  next();
+ async dishInterceptor(req: Request, res: Response, next: NextFunction) {
+  try {
+    const count = await DishModel.countDocuments();
+    const randomIndex = Math.floor(Math.random() * count);
+    const dishObjectId = await DishModel.findOne().skip(randomIndex);
+    
+    req.body.dish = dishObjectId;
+    req.body.timeStamp = new Date().toUTCString()
+    req.body.state = OrderState.InProgress;
+
+    next();
+  } catch (error) {
+    next(error);
+  }
 }
 
 }
