@@ -1,13 +1,15 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+import { Schema, model } from "mongoose";
 import Order from "../../order/domain/order.model.js";
 
 
 const orderSchema = new Schema<Order>({
  
  dish: {
-  type: SchemaTypes.ObjectId,
-  ref: 'Dish'
- },
+    type: Schema.Types.ObjectId,
+    ref: 'Dish',
+    required: true,
+    
+  },
  timeStamp: {
       type: Date,
       required: true

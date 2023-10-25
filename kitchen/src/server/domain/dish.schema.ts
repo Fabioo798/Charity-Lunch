@@ -2,15 +2,23 @@ import { Schema, model } from "mongoose";
 import Dish from "../../dish/domain/dish.model.js";
 
 
-const dishSchema = new Schema<Dish>({
+export const dishSchema = new Schema<Dish>({
  name: {
    type: String,
    required: true
  },
- ingredient: {
-   type: Schema.ObjectId,
-   ref: 'Ingredient'
- },
+ ingredients: [{
+  _id: false,
+   name: {
+    type: String,
+    required: true
+   },
+   quantity: {
+    type: Number,
+    required: true
+   }
+
+ }],
 })
 
 dishSchema.set('toJSON', {
