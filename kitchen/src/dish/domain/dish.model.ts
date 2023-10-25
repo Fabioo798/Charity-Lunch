@@ -9,4 +9,3 @@ export default class Dish {
   public ingredients: Ingredient[]
  ) {}
 }
-
