@@ -1,14 +1,12 @@
 /* eslint-disable no-useless-constructor */
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Ingredient from "../../ingredient/domain/ingredient.model.js";
 
 export default class Dish {
  
  constructor(
-  id: string,
-  name: string,
-  ingredients: Ingredient[]
+  public id: string,
+  public name: string,
+  public ingredients: Ingredient[]
  ) {}
 }
 
