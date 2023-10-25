@@ -9,8 +9,9 @@ export default class OrderMongoRepo implements OrderRepo {
     this.orderModel = orderModel;
   }
 
-  async create(Order: Order): Promise<void> {
-    await this.orderModel.create(Order);
+  async create(Order: Order): Promise<Order> {
+    const response = await this.orderModel.create(Order)
+    return response as Order;
   }
 
   async update(Order: Partial<Order>): Promise<void> {
@@ -20,7 +21,7 @@ export default class OrderMongoRepo implements OrderRepo {
   async find(id: string): Promise<Order> {
     const response = await this.orderModel
       .findById(id)
-      .populate('myGames', '-owner').populate('shopList', '-owner');
+      .populate('dish');
     return response as Order;
   }
 

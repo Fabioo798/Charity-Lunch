@@ -15,12 +15,15 @@ const mockModel = {
 const mockOrder = {
   id: '2',
   dish: {
-   id: '1',
    name: 'test',
-   ingredients: ['peper', 'test2', 'test3'],
-  },
+   ingredients: [
+    {name: 'peperoni', quantity: 1},
+    {name: 'peperoni1', quantity: 1},
+  ],
+ },
   timeStamp: new Date(),
   state: OrderState.InProgress,
+
 } as Order;
 let popValue: unknown;
 
