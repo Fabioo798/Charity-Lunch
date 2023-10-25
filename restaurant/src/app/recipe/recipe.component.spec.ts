@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RecipeComponent } from './recipe.component';
-import { recipes } from './recipes';
+import { dishes } from './recipes';
 
 describe('RecipeComponent', () => {
   let component: RecipeComponent;
@@ -19,6 +19,6 @@ describe('RecipeComponent', () => {
 
   it('should create the RecipeComponent with initialized recipes', () => {
     expect(component).toBeTruthy();
-    expect(component.recipes).toEqual(recipes);
+    expect(component.dishes).toEqual(dishes);
   });
 });

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Dish } from 'src/interfaces/interfaces';
-import { recipes } from './recipes';
+import { dishes } from './recipes';
 
 @Component({
   selector: 'app-recipe',
@@ -8,9 +8,9 @@ import { recipes } from './recipes';
   styleUrls: ['./recipe.component.scss'],
 })
 export class RecipeComponent {
-  recipes: Dish[];
+  dishes: Dish[];
 
   constructor() {
-    this.recipes = recipes;
+    this.dishes = dishes;
   }
 }
