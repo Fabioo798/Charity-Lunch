@@ -1,6 +1,6 @@
 import { Dish } from 'src/interfaces/interfaces';
 
-export const recipes: Dish[] = [
+export const dishes: Dish[] = [
   {
     name: 'Tomato Salad',
     ingredients: [
