@@ -34,7 +34,7 @@ describe('Given the OrderUpdater class', () => {
     test('Then the search order repo method should called', async () => {
       (mockRepo.update as jest.Mock).mockResolvedValue(mockOrder);
 
-      await repo.execute(mockOrder);
+      await repo.execute(mockOrder.id, mockOrder);
 
       expect(mockRepo.update).toHaveBeenCalled();
     });
