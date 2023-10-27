@@ -59,7 +59,7 @@ describe('Given the OrderMongoRepo', () => {
     test('Then it should update an order', async () => {
       (mockModel.findByIdAndUpdate as jest.Mock).mockResolvedValue(mockOrder);
 
-      await repo.update(mockOrder);
+      await repo.update(mockOrder.id, mockOrder);
 
       expect(mockModel.findByIdAndUpdate).toHaveBeenCalled();
     });
