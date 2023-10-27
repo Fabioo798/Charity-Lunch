@@ -14,8 +14,8 @@ export default class OrderMongoRepo implements OrderRepo {
     return response as Order;
   }
 
-  async update(Order: Partial<Order>): Promise<void> {
-    await this.orderModel.findByIdAndUpdate(Order.id, Order);
+  async update(id: string, Order: Partial<Order>): Promise<void> {
+    await this.orderModel.findByIdAndUpdate(id, Order);
   }
 
   async find(id: string): Promise<Order> {
@@ -26,7 +26,7 @@ export default class OrderMongoRepo implements OrderRepo {
   }
 
   async findAll(): Promise<Order[]> {
-    const response = await this.orderModel.find().populate('dish', 'ingredients');
+    const response = await this.orderModel.find().populate('dish', 'name ingredients')
     return response;
   }
 

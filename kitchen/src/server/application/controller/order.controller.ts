@@ -36,9 +36,9 @@ export class OrderController {
     }
 
     const data = await this.orderCreator.execute(req.body);
-    res.status(201).json({
-      results: [data],
-    });
+    req.body.orderData = data
+    res.status(201).json({results: data});
+    next();
   } catch (error) {
     next(error);
   }
@@ -63,7 +63,7 @@ export class OrderController {
     const response = await this.orderFinderAll.execute();
 
     res.status(200);
-    res.json({ results: [response] });
+    res.json({ results: response });
   }
 
   async searchOrder(req: Request, res: Response, next: NextFunction) {
@@ -77,7 +77,7 @@ export class OrderController {
       });
 
       res.status(200);
-      res.json({ results: [data] });
+      res.json(data);
     } catch (error) {
       next(error);
     }
@@ -94,7 +94,7 @@ export class OrderController {
         ...body,
       };
 
-      await this.orderUpdater.execute(newOrder);
+      await this.orderUpdater.execute(id, newOrder);
 
       res.status(200);
       res.json({ ok: true, message: 'Order updated successfully' });

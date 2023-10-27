@@ -21,20 +21,7 @@ import OrderRouter from "./server/infrastructure/routers/order.router.js";
 
 const bootstrap = async () => {
 
-  const dishRepository = new DishMongoRepo(DishModel);
 
-  const dishFinders = new DishFinder(dishRepository);
-  const dishFinderAll = new DishFinderAll(dishRepository);
-  const dishCreator = new DishCreator(dishRepository);
-  const dishDeleter = new DishDeleter(dishRepository);
-  const dishController = new DishController(
-    dishCreator,
-    dishFinders,
-    dishFinderAll,
-    dishDeleter
-  );
-
-  const dishRouter = new DishRouter(dishController);
 
  const orderRepository = new OrderMongoRepo(OrderModel);
 
@@ -52,11 +39,27 @@ const bootstrap = async () => {
     orderUpdater,
     orderDeleter,
   );
-
-  const orderRouter = new OrderRouter(orderController);
+  const orderRouter = new OrderRouter(orderController, orderUpdater);
 
  
 
+
+  const dishRepository = new DishMongoRepo(DishModel);
+
+  const dishFinders = new DishFinder(dishRepository);
+  const dishFinderAll = new DishFinderAll(dishRepository);
+  const dishCreator = new DishCreator(dishRepository);
+  const dishDeleter = new DishDeleter(dishRepository);
+  const dishController = new DishController(
+    dishCreator,
+    dishFinders,
+    dishFinderAll,
+    dishDeleter
+  );
+
+  const dishRouter = new DishRouter(dishController, orderUpdater);
+
+ 
 
  const server = new ExpressServer([orderRouter, dishRouter]);
 

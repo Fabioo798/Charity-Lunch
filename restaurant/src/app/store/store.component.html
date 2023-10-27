@@ -1,0 +1,22 @@
+<div class="container">
+ <div class="left-section">
+  <h2>Ingredients</h2>
+  <ul class="ingredients-list">
+   <li *ngFor="let ingredient of this.ingredients">
+    {{ ingredient.name }} ({{ ingredient.quantity }})
+   </li>
+  </ul>
+ </div>
+
+ <div class="right-section">
+  <h2>Order History</h2>
+  <div class="order-list">
+   <div class="order" *ngFor="let order of this.orders">
+    <h3>ID: {{ order.id }}</h3>
+    <p>Ingredient: {{ order.name }}</p>
+    <p>quantitySold: {{ order.quantitySold }}</p>
+    <p>Time: {{ order.timeStamp | date: 'medium' : 'UTC' : 'Es' }}</p>
+   </div>
+  </div>
+ </div>
+</div>

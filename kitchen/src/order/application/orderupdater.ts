@@ -5,7 +5,7 @@ export default class OrderUpdater {
   // eslint-disable-next-line no-useless-constructor
   constructor(private repository: OrderRepo) {}
 
-  async execute(user: Partial<Order>): Promise<void> {
-    await this.repository.update(user);
+  async execute(id: string, order: Partial<Order>): Promise<void> {
+    await this.repository.update(id, order);
   }
 }

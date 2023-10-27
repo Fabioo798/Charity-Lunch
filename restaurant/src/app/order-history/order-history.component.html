@@ -1,1 +1,17 @@
-<p>order-history works!</p>
+<div class="container">
+ <h2>Order History</h2>
+ <div class="order-list">
+  <div class="order" *ngFor="let order of orders">
+   <h3>ID: {{ order.id }}</h3>
+   <p>Date: {{ order.timeStamp | date: 'medium' : 'UTC' : 'Es' }}</p>
+   <p>State: {{ order.state }}</p>
+   <p>Dish: {{ order.dish.name }}</p>
+   <ul class="ingredients-list">
+    <li *ngFor="let ingredient of order.dish.ingredients">
+     {{ ingredient.name }}
+     {{ ingredient.quantity }}
+    </li>
+   </ul>
+  </div>
+ </div>
+</div>

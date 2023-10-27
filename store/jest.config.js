@@ -13,6 +13,8 @@ export default {
     'db.connect',
     'config',
     'model',
-    'authorization.ts'
+    'authorization.ts',
+    'schema.ts',
+    'server.ts'
   ],
 };

@@ -13,46 +13,14 @@ This README provides an overview of the project, its features, and instructions 
 - **Ingredient Management**: The kitchen requests the required ingredients from the food storage, either by checking availability or buying the missing ones from the farmers market.
 - **Inventory Tracking**: The food storage keeps track of the available ingredients, the purchase history from the farmers market, and the quantity used for each ordered dish.
 
-## Installation and Setup
 
-1. Clone the repository:
 
-  ```shell
-  git clone <repository-url>
-  ```
+## Access the application:
 
-2. Navigate to the project directory:
-
-  ```shell
-  cd <project-directory>
-  ```
-
-3. Install dependencies:
-
-  ```shell
-  npm install
-  ```
-
-4. Start the microservices using Docker:
-
-  - Build Docker images:
-
-    ```shell
-    docker-compose build
-    ```
-
-  - Start Docker containers:
-
-    ```shell
-    docker-compose up
-    ```
-
-5. Access the application:
-  - Frontend UI: Open your browser and visit `http://localhost:3000`
+  - Frontend UI: Open your browser and visit `http://localhost:4200`
   - Backend APIs:
-    - Kitchen Service: `http://localhost:4000`
-    - Food Storage Service: `http://localhost:5000`
-    - Farmers Market Service: `http://localhost:6000`
+  - Kitchen Service: `http://localhost:4800`
+  - Food Storage Service: `http://localhost:4900`
 
 ## Usage
 

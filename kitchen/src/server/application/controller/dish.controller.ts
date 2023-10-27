@@ -60,7 +60,7 @@ export class DishController {
     const response = await this.dishFinderAll.execute();
 
     res.status(200);
-    res.json({ results: [response] });
+    res.json({ results: response });
   }
 
   async deleteDish(req: Request, res: Response, next: NextFunction) {

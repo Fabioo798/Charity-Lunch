@@ -1,8 +1,17 @@
 import { Request, Response, NextFunction } from "express";
 import { DishModel } from "../../domain/dish.schema.js";
 import { Interceptors } from "./interceptors.js";
+import OrderRepo from "../../../order/domain/order.model.repo.js";
+import OrderUpdater from "../../../order/application/orderupdater.js";
 
 jest.mock("../../domain/dish.schema.js");
+
+const mockRepo = {
+  findByIdAndUpdate: jest.fn(),
+} as unknown as OrderRepo;
+
+
+const mockOrderUpdater = new OrderUpdater(mockRepo);
 
 describe("Interceptors", () => {
   let interceptors: Interceptors;
@@ -11,7 +20,7 @@ describe("Interceptors", () => {
   let next: NextFunction;
 
   beforeEach(() => {
-    interceptors = new Interceptors();
+    interceptors = new Interceptors(mockOrderUpdater);
     req = { body: {} } as Request;
     res = {} as Response;
     next = jest.fn();
