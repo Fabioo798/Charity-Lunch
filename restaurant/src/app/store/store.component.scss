@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  h2 {
+    text-align: center;
+  }
+
+  .left-section {
+    flex: 1;
+
+    .ingredients-list {
+      list-style-type: square;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .right-section {
+    flex: 1;
+
+    .order-list {
+      .order {
+        padding: 10px;
+        background-color: #f5f5f5;
+        margin-bottom: 10px;
+
+        h3 {
+          color: #007bff;
+          margin-bottom: 5px;
+        }
+
+        p {
+          color: #555;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
