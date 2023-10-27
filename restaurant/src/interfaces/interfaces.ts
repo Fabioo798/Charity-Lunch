@@ -17,6 +17,10 @@ export interface Order {
   state: string;
 }
 
+export interface KitchenAllDishResponse {
+ results: Dish[]
+}
+
 export interface KitchenOrdersArrResponse {
   results: [{
     dish: Dish;
@@ -34,6 +38,19 @@ export interface KitchenOrderResponse {
   };
 }
 
+export interface StoreIngredientResponse {
+ results: Ingredient[]
+}
+
+export interface StoreOrder {
+ id: string,
+ quantitySold: Number
+ name: string
+ timeStamp: Date
+}
+export interface StoreOrderResponse {
+ results: StoreOrder[]
+}
 export interface MenuItems {
   label: string;
   path: string;
