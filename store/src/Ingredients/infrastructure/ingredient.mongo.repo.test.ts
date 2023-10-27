@@ -42,7 +42,7 @@ describe('Given the IngredientMongoRepo', () => {
     test('Then it should update an Ingredient', async () => {
       (mockModel.findByIdAndUpdate as jest.Mock).mockResolvedValue(mockIngredient);
 
-      await repo.update(mockIngredient);
+      await repo.update(mockIngredient.id, mockIngredient);
 
       expect(mockModel.findByIdAndUpdate).toHaveBeenCalled();
     });
