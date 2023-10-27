@@ -9,7 +9,7 @@
     "test:prod": "jest --watchAll --coverage --watchAll=false --passWithNoTests",
     "start": "cross-env DEBUG=kitchen* node ./dist/index.js",
     "start:mon": "cross-env DEBUG=kitchen*  nodemon ./dist/index.js",
-    "build": "tsc -w",
+    "build": "tsc ",
     "build:prod": "tsc"
   },
   "keywords": [
@@ -58,7 +58,8 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.0",
     "morgan": "^1.10.0",
-    "socket.io": "^4.7.2"
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
   },
   "prettier": {
     "singleQuote": true
