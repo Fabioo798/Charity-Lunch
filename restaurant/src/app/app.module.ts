@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutComponent } from './infrastructure/layout/layout.component';
 import { HeaderComponent } from './infrastructure/header/header.component';
 import { LOCALE_ID } from '@angular/core';
+import { StoreComponent } from './store/store.component';
+import { DishesComponent } from './dishes/dishes.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { LOCALE_ID } from '@angular/core';
     RecipeComponent,
     LayoutComponent,
     HeaderComponent,
+    StoreComponent,
+    DishesComponent,
 
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
