@@ -14,8 +14,8 @@ export default class IngredientMongoRepo implements IngredientRepo {
     return response as Ingredient;
   }
 
-  async update(Ingredient: Partial<Ingredient>): Promise<void> {
-    await this.ingredientModel.findByIdAndUpdate(Ingredient.id, Ingredient);
+  async update(id: string, Ingredient: Partial<Ingredient>): Promise<void> {
+    await this.ingredientModel.findByIdAndUpdate(id, Ingredient);
   }
 
   async find(id: string): Promise<Ingredient> {

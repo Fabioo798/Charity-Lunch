@@ -1,5 +1,5 @@
-import Ingredient from "../domain/ingredient.model";
-import IngredientRepo from "../domain/ingredient.model.repo";
+import Ingredient from "../domain/ingredient.model.js";
+import IngredientRepo from "../domain/ingredient.model.repo.js";
 
 export default class IngredientFinder {
   // eslint-disable-next-line no-useless-constructor

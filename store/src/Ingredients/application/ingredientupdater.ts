@@ -5,7 +5,7 @@ export default class IngredientUpdater {
   // eslint-disable-next-line no-useless-constructor
   constructor(private repository: IngredientRepo) {}
 
-  async execute(ingredient: Partial<Ingredient>): Promise<void> {
-    await this.repository.update(ingredient);
+  async execute(id: string, ingredient: Partial<Ingredient>): Promise<void> {
+    await this.repository.update(id, ingredient);
   }
 }

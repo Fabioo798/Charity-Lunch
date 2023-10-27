@@ -26,7 +26,7 @@ describe('Given the IngredientUpdater class', () => {
     test('Then the search Ingredient repo method should called', async () => {
       (mockRepo.update as jest.Mock).mockResolvedValue(mockIngredient);
 
-      await repo.execute(mockIngredient);
+      await repo.execute(mockIngredient.id, mockIngredient);
 
       expect(mockRepo.update).toHaveBeenCalled();
     });
