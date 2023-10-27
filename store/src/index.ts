@@ -30,7 +30,7 @@ const bootstrap = async () => {
     ingredientDeleter,
   );
 
-  const ingredientRouter = new IngredientRouter(ingredientController);
+  const ingredientRouter = new IngredientRouter(ingredientSearcher, ingredientUpdater, ingredientController );
 
   const server = new ExpressServer([ingredientRouter]);
 
