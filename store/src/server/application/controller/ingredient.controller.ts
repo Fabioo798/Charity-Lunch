@@ -70,7 +70,7 @@ export class IngredientController {
  async searchIngredient(req: Request, res: Response, next: NextFunction) {
   try {
     debug('searchIngredient');
-    if (!req.body.ingredients || !Array.isArray(req.body.ingredients) || req.body.ingredients.length === 0) {
+    if (!req.body.ingredients || req.body.ingredients.length === 0) {
       throw new HTTPError(404, 'Missing ingredients', 'no ingredients');
     }
 
@@ -84,6 +84,8 @@ export class IngredientController {
   }
 }
 
+
+
   async updateIngredient(req: Request, res: Response, next: NextFunction) {
     try {
       debug('updateIngredient');
@@ -95,7 +97,7 @@ export class IngredientController {
         ...quantity,
       };
 
-      await this.ingredientUpdater.execute(newIngredient);
+      await this.ingredientUpdater.execute(id, newIngredient);
 
       res.status(200);
       res.json({ ok: true, message: 'Ingredient updated successfully' });
