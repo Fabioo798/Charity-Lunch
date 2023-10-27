@@ -64,7 +64,7 @@ export class IngredientController {
     const response = await this.ingredientFinderAll.execute();
 
     res.status(200);
-    res.json({ results: [response] });
+    res.json({ results: response });
   }
 
  async searchIngredient(req: Request, res: Response, next: NextFunction) {

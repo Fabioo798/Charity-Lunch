@@ -5,6 +5,8 @@ import IngredientSearcher from "../../../Ingredients/application/ingredientsearc
 import axios from "axios";
 import IngredientUpdater from "../../../Ingredients/application/ingredientupdater.js";
 import { HTTPError } from "../../../common/error.js";
+import ShopList from "../../../shopList/domain/shopList.model.js";
+import ShopListCreator from "../../../shopList/application/shopListCreator.js";
 
 
 export class Interceptors {
@@ -12,6 +14,7 @@ export class Interceptors {
  constructor(
   private ingredientSearcher: IngredientSearcher,
   private ingredientUpdater: IngredientUpdater,
+  private shopListCreator: ShopListCreator,
  ) {
 
  }
@@ -78,10 +81,15 @@ export class Interceptors {
     const promises = missingIngredients.map(async (ingredient: Ingredient) => {
       const response = await axios.get(`https://recruitment.alegra.com/api/farmers-market/buy?ingredient=${ingredient.name.toLocaleLowerCase()}`);
       console.log('ALEGRA API', response.data);
+      
+      // eslint-disable-next-line no-debugger
+      debugger;
+      
+      await this.shopListCreator.execute({name: ingredient.name, quantitySold: response.data.quantitySold, timeStamp: new Date()} as ShopList);
       return {
-        id: ingredient.id, 
-        name: ingredient.name,
-        quantity: response.data.quantitySold
+       id: ingredient.id, 
+       name: ingredient.name,
+       quantity: response.data.quantitySold
       } as Ingredient;
     });
   
