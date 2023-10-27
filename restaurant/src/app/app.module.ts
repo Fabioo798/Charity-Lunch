@@ -9,6 +9,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutComponent } from './infrastructure/layout/layout.component';
 import { HeaderComponent } from './infrastructure/header/header.component';
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,12 @@ import { HeaderComponent } from './infrastructure/header/header.component';
     RecipeComponent,
     LayoutComponent,
     HeaderComponent,
+
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [
+   { provide: LOCALE_ID, useValue: 'es' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
