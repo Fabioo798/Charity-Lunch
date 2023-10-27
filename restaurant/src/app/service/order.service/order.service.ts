@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, finalize, switchMap } from 'rxjs';
-import { KitchenOrderResponse, KitchenOrderStateResponse, KitchenOrdersArrResponse, Order } from 'src/interfaces/interfaces';
+import { KitchenAllDishResponse, KitchenOrderResponse, KitchenOrderStateResponse, KitchenOrdersArrResponse, Order } from 'src/interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +20,10 @@ export class OrderService {
   }
   orderHistory(): Observable<KitchenOrdersArrResponse> {
     return this.http.get<KitchenOrdersArrResponse>('http://localhost:4800/order/history');
+  }
+
+  getAllDishes(): Observable<KitchenAllDishResponse> {
+    return this.http.get<KitchenAllDishResponse>('http://localhost:4800/dish/dishes')
   }
 
   filterOrder(state: string): Observable<Order[]> {
