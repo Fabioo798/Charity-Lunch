@@ -4,8 +4,6 @@
 
 Jornada de almuerzo ¡gratis! (Free Lunch Campaign) is a project aimed at organizing and facilitating a charity event where residents of the region can enjoy a free meal. The unique condition is that the dish served to each participant will be randomly selected. The project helps the restaurant manager efficiently request dishes from the kitchen based on the available ingredients and handle the entire process seamlessly.
 
-This README provides an overview of the project, its features, and instructions for setting it up locally.
-
 ## Features
 
 - **Dish Ordering**: The restaurant manager can request the kitchen to prepare a new dish.

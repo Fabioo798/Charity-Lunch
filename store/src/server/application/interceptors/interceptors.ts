@@ -6,7 +6,7 @@ import axios from "axios";
 import IngredientUpdater from "../../../Ingredients/application/ingredientupdater.js";
 import { HTTPError } from "../../../common/error.js";
 import ShopList from "../../../shopList/domain/shopList.model.js";
-import ShopListCreator from "../../../shopList/application/shopListCreator.js";
+import ShopListCreator from "../../../shopList/application/shoplistcreate.js";
 import createDebug from 'debug';
 
 

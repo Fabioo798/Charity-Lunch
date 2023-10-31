@@ -2,7 +2,7 @@ import { IngredientModel } from "../../server/domain/ingredient.schema.js";
 import Ingredient from "../domain/ingredient.model.js";
 import IngredientMongoRepo from "./ingredient.mongo.repo.js";
 
-jest.mock('../../server/domain/Ingredient.schema');
+jest.mock('../../server/domain/ingredient.schema.js');
 
 const mockModel = {
   find: jest.fn(),
