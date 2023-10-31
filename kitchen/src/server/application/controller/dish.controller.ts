@@ -5,7 +5,7 @@ import DishDeleter from "../../../dish/application/dishdeleter.js";
 import DishFinderAll from "../../../dish/application/dishfinderall.js";
 import DishFinder from "../../../dish/application/dishfinder.js";
 
-const debug = createDebug('WOF: user controller');
+const debug = createDebug('CL-Kitchen');
 
 
 export class DishController {
@@ -23,6 +23,7 @@ export class DishController {
 
  async createDish(req: Request, res: Response, next: NextFunction) {
    try {
+    debug('createDish method called')
     const { body } = req
    if(
     !req.body.name || 
@@ -43,7 +44,7 @@ export class DishController {
 
  async findDish(req: Request, res: Response, next: NextFunction) {
     try {
-      debug('findDish');
+      debug('findDish method called');
       const { id } = req.params;
       const data = await this.dishFinder.execute(id);
 
@@ -56,7 +57,7 @@ export class DishController {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async findAllDish(req: Request, res: Response, _next: NextFunction) {
-    debug('findUser');
+    debug('findAllDish method called');
     const response = await this.dishFinderAll.execute();
 
     res.status(200);
@@ -65,7 +66,7 @@ export class DishController {
 
   async deleteDish(req: Request, res: Response, next: NextFunction) {
     try {
-      debug('deleteDish');
+      debug('deleteDish method called');
       const { id } = req.params;
 
       await this.dishDeleter.execute(id);

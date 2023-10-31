@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OrderDishComponent } from './order-dish/order-dish.component';
-import { RecipeComponent } from './recipe/recipe.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { StoreComponent } from './store/store.component';
 import { DishesComponent } from './dishes/dishes.component';

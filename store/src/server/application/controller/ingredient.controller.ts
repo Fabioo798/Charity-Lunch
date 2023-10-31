@@ -9,7 +9,7 @@ import IngredientSearcher from "../../../Ingredients/application/ingredientsearc
 import IngredientUpdater from "../../../Ingredients/application/ingredientupdater.js";
 import Ingredient from "../../../Ingredients/domain/ingredient.model.js";
 
-const debug = createDebug('CL: Ingredient controller');
+const debug = createDebug('CL-Store');
 
 
 export class IngredientController {
@@ -30,6 +30,7 @@ export class IngredientController {
 
  async createIngredient(req: Request, res: Response, next: NextFunction) {
   try {
+   debug('createIngredient method called!')
     const { name, quantity } = req.body;
   
     if (!name || !quantity) {
@@ -47,10 +48,9 @@ export class IngredientController {
 
  async findIngredient(req: Request, res: Response, next: NextFunction) {
     try {
-      debug('findIngredient');
+      debug('findIngredient method called');
       const { id } = req.params;
       const data = await this.ingredientFinder.execute(id);
-
       res.status(200);
       res.json({ results: [data] });
     } catch (error) {
@@ -58,18 +58,20 @@ export class IngredientController {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async findAllIngredient(req: Request, res: Response, _next: NextFunction) {
-    debug('findIngredient');
-    const response = await this.ingredientFinderAll.execute();
-
-    res.status(200);
-    res.json({ results: response });
+  async findAllIngredient(req: Request, res: Response, next: NextFunction) {
+    try {
+       debug('findAllIngredient method called');
+       const response = await this.ingredientFinderAll.execute();
+       res.status(200);
+       res.json({ results: response });
+    } catch (error) {
+       next(error);
+    }
   }
 
  async searchIngredient(req: Request, res: Response, next: NextFunction) {
   try {
-    debug('searchIngredient');
+    debug('searchIngredient method called');
     if (!req.body.ingredients || req.body.ingredients.length === 0) {
       throw new HTTPError(404, 'Missing ingredients', 'no ingredients');
     }
@@ -88,7 +90,7 @@ export class IngredientController {
 
   async updateIngredient(req: Request, res: Response, next: NextFunction) {
     try {
-      debug('updateIngredient');
+      debug('updateIngredient method called');
       const { id } = req.body;
       const { quantity } = req.body;
 
@@ -108,7 +110,7 @@ export class IngredientController {
 
   async deleteIngredient(req: Request, res: Response, next: NextFunction) {
     try {
-      debug('deleteIngredient');
+      debug('deleteIngredient method called');
       const { id } = req.params;
 
       await this.ingredientDeleter.execute(id);

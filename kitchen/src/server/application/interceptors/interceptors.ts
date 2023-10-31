@@ -5,16 +5,18 @@ import axios from "axios";
 import Ingredient from "../../../ingredient/domain/ingredient.model.js";
 import io from 'socket.io-client';
 import OrderUpdater from "../../../order/application/orderupdater.js";
+import createDebug from 'debug';
+
 
 
 const socket = io('http://localhost:4800');
+const debug = createDebug('CL-Kitchen');
 
 export class Interceptors {
- // eslint-disable-next-line no-useless-constructor
  constructor(
   private orderUpdater: OrderUpdater,
  ) {
-
+  debug('interceptor instantiated')
  }
  
  async dishInterceptor(req: Request, res: Response, next: NextFunction) {
@@ -26,10 +28,11 @@ export class Interceptors {
     req.body.dish = dishObjectId;
     req.body.timeStamp = new Date().toUTCString()
     req.body.state = OrderState.InProgress;
-    console.log('dish interceptor pass');
+    debug('random plate selected!')
 
     next();
   } catch (error) {
+    debug('error on first interceptor')
     next(error);
   }
 }
@@ -37,29 +40,31 @@ export class Interceptors {
   async dishInfoInterceptor(req: Request, res: Response, next: NextFunction) {
   
     const { dish, orderData } = req.body;
-    console.log('INFORMAZIONI PIATTO', dish);
-    console.log('INFORMAZIONI ORDINE', orderData);
     
     const ingredients: Ingredient[] = dish.ingredients.map((ingredient: Ingredient) => ({
       name: ingredient.name,
       quantity: ingredient.quantity,
     }));
-    console.log('INFRO ARRAY INGREDI', ingredients)
 
     try {
-      const response = await axios.patch('http://localhost:4900/ingredient/quantity', { ingredients });
+      const response = await axios.patch('http://host.docker.internal:4900/ingredient/quantity', { ingredients });
       // Check the response status and update the order state accordingly
       if (response.status === 200) {
-        console.log('Ingredient sent!');
+        debug('Ingredient sent!')
         socket.emit('orderStateChanged', { id: orderData.id, state: 'complete' });
         await this.orderUpdater.execute(orderData.id, { state: OrderState.Complete });
-        console.log('AFTER ORDER UPDATE');
+        debug('Order updated');
       } 
+
     } catch (error) {
-      console.log('Not enough ingredient');
+      debug('Not enough ingredient');
       socket.emit('orderStateChanged', { id: orderData.id, state: 'not-enough-ingredient' });
       await this.orderUpdater.execute(orderData.id, { state: OrderState.NotEnoughIngredient });
       next();
     }
-}
+   }
+
+   closeSocketConnection() {
+    socket.close()
+   }
 }

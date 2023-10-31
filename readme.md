@@ -34,7 +34,7 @@ This README provides an overview of the project, its features, and instructions 
 
 - Node.js
 - Docker
-- Frontend Framework (if applicable)
-- Backend Framework (if applicable)
-- Database (if applicable)
-- Any other relevant technologies
+- Angular
+- Express.js
+- MongoDB
+- TypeScript

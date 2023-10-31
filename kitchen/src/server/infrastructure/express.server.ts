@@ -6,14 +6,14 @@ import cors from 'cors';
 import { dbConnect } from './db/db.connect.js';
 import { SocketServer } from './web.socket/socket.server.js';
 
-const debug = createDebug('Charity-Lunch: express server');
 
 const routes = [
-  { endpoint: '/create', method: 'POST' },
-  { endpoint: '/history', method: 'GET' },
-  { endpoint: '/state=:state', method: 'GET' },
+ { endpoint: '/create', method: 'POST' },
+ { endpoint: '/history', method: 'GET' },
+ { endpoint: '/state=:state', method: 'GET' },
 ];
 
+const debug = createDebug('CL-Kitchen');
 export default class ExpressServer {
   app: Express;
   server: http.Server;

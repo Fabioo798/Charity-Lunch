@@ -1,5 +1,6 @@
 <div class="container">
  <h2>Order History</h2>
+ <p *ngIf="isError">Ops! There was a problem retrieving our order history! try again later</p>
  <div class="order-list">
   <div class="order" *ngFor="let order of orders">
    <h3>ID: {{ order.id }}</h3>

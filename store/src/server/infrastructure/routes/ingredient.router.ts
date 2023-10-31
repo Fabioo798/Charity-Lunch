@@ -6,7 +6,7 @@ import { IngredientController } from "../../application/controller/ingredient.co
 import { Interceptors } from "../../application/interceptors/interceptors.js";
 import IngredientSearcher from "../../../Ingredients/application/ingredientsearcher.js";
 import IngredientUpdater from "../../../Ingredients/application/ingredientupdater.js";
-import ShopListCreator from "../../../shopList/application/shopListCreator.js";
+import ShopListCreator from "../../../shopList/application/shoplistcreator.js";
 import { ShopListController } from "../../application/controller/shopList.controller.js";
 
 

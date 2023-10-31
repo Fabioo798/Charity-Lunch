@@ -1,10 +1,10 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { OrderDishComponent } from './order-dish.component';
-import { OrderService } from '../service/order.service';
 import { of, throwError } from 'rxjs';
-import { Dish } from 'src/interfaces/interfaces';
+import { Dish, KitchenOrderResponse } from 'src/interfaces/interfaces';
 import { mockOrderService } from 'src/mocks/mocks';
+import { OrderService } from '../service/order.service/order.service';
 
 describe('OrderDishComponent', () => {
   let component: OrderDishComponent;
@@ -14,34 +14,33 @@ describe('OrderDishComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [OrderDishComponent],
-      imports: [HttpClientTestingModule],
       providers: [
        {
          provide: OrderService,
          useValue: mockOrderService
         }
        ],
-    }).compileComponents();
-  });
-
-  beforeEach(() => {
+    })
     fixture = TestBed.createComponent(OrderDishComponent);
     component = fixture.componentInstance;
     orderService = TestBed.inject(OrderService);
     fixture.detectChanges();
   });
 
+
+
+
   it('should assign the dish after placing the order successfully', () => {
-    const expectedDish: Dish = { id: '', name: 'Test Dish', ingredients: [] }; // Define your expected dish object
+    const expectedDish: KitchenOrderResponse = {results: { dish: {id: '', name: 'Test Dish', ingredients: [] }}} as unknown as KitchenOrderResponse; // Define your expected dish object
 
     spyOn(orderService, 'placeOrder').and.returnValue(
-      of({ results: { data: expectedDish } })
+      of(expectedDish)
     ); // Mock the placeOrder method to return an observable of the expected dish
 
     component.orderDish();
 
     expect(component.isLoading).toBe(false);
-    expect(component.dish).toEqual(expectedDish);
+    expect(component.order?.dish).toEqual(expectedDish.results.dish);
     expect(component.error).toBeNull();
   });
 
@@ -55,7 +54,7 @@ describe('OrderDishComponent', () => {
     component.orderDish();
 
     expect(component.isLoading).toBe(false);
-    expect(component.dish).toBeUndefined();
+    expect(component.order?.dish).toBeUndefined();
     expect(component.error).toEqual(expectedError);
   });
 });

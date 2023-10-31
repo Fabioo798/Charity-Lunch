@@ -8,6 +8,8 @@
     "ingredientfinderall",
     "ingredientsearcher",
     "ingredientupdater",
-    "shoplist"
+    "shoplist",
+    "shoplistcreator",
+    "shoplistfinderall"
   ]
 }
