@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import createDebug from 'debug';
-import ShopListCreator from "../../../shopList/application/shoplistcreator.js";
-import ShopListFinderAll from "../../../shopList/application/shoplistfinderall.js";
+import ShopListCreator from "../../../shopList/application/shopListCreator.js";
+import ShopListFinderAll from "../../../shopList/application/shopListFinderall.js";
 
 const debug = createDebug('CL-Store');
 

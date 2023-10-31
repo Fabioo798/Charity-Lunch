@@ -1,6 +1,6 @@
 import ShopList from "../domain/shopList.model.js";
 import ShopListRepo from "../domain/shopList.model.repo.js";
-import ShopListCreator from "./shoplistcreator.js";
+import ShopListCreator from "./shopListCreator.js";
 
 const mockRepo = {
   create: jest.fn(),

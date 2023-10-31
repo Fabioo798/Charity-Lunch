@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import ShopListCreator from '../../../shopList/application/shoplistcreator.js';
-import ShopListFinderAll from '../../../shopList/application/shoplistfinderall.js';
+import ShopListCreator from '../../../shopList/application/shopListCreator.js';
+import ShopListFinderAll from '../../../shopList/application/shopListFinderall.js';
 import ShopList from '../../../shopList/domain/shopList.model.js';
 import ShopListRepo from '../../../shopList/domain/shopList.model.repo.js';
 import { ShopListController } from './shopList.controller.js';

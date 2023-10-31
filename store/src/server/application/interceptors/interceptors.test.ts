@@ -3,7 +3,7 @@ import { Interceptors } from './interceptors'; // Note: replace with actual path
 import IngredientSearcher from '../../../Ingredients/application/ingredientsearcher.js';
 import IngredientUpdater from '../../../Ingredients/application/ingredientupdater.js';
 import Ingredient from '../../../Ingredients/domain/ingredient.model.js';
-import ShopListCreator from '../../../shopList/application/shoplistcreator.js';
+import ShopListCreator from '../../../shopList/application/shopListCreator.js';
 import IngredientRepo from '../../../Ingredients/domain/ingredient.model.repo.js';
 import ShopListRepo from '../../../shopList/domain/shopList.model.repo';
 import axios from 'axios';
