@@ -9,7 +9,7 @@ import createDebug from 'debug';
 
 
 
-const socket = io('http://localhost:4800');
+const socket = io('http://34.74.133.150:4800');
 const debug = createDebug('CL-Kitchen');
 
 export class Interceptors {
@@ -47,7 +47,7 @@ export class Interceptors {
     }));
 
     try {
-      const response = await axios.patch('http://host.docker.internal:4900/ingredient/quantity', { ingredients });
+      const response = await axios.patch('http://34.74.133.150:4900/ingredient/quantity', { ingredients });
       // Check the response status and update the order state accordingly
       if (response.status === 200) {
         debug('Ingredient sent!')
