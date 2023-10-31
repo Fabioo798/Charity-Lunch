@@ -25,4 +25,3 @@ export const mockOrderService = {
    return new Observable<StoreOrderResponse>()
   }
  }
-
