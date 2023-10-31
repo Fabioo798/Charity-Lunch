@@ -2,8 +2,8 @@ import { NextFunction, Request, Response } from 'express';
 import ShopList from '../../../shopList/domain/shopList.model.js';
 import ShopListRepo from '../../../shopList/domain/shopList.model.repo.js';
 import { ShopListController } from './shopList.controller.js';
-import ShopListCreator from '../../../shopList/application/shopListCreator.js';
-import ShopListFinderAll from '../../../shopList/application/shopListFinderall.js';
+import ShopListCreator from '../../../shopList/application/shoplistcreate.js';
+import ShopListFinderAll from '../../../shopList/application/shoplistfindall.js';
 
 
 const res = {
