@@ -15,7 +15,6 @@ export class OrderService {
 
   placeOrder(): Observable<KitchenOrderResponse> {
     const response = this.http.post<KitchenOrderResponse>('http://localhost:4800/order/create', {body: {dish: '', timesStamp: '', state: '' }});
-    console.log(response)
     return response;
   }
   orderHistory(): Observable<KitchenOrdersArrResponse> {

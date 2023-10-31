@@ -30,8 +30,8 @@ describe('OrderService', () => {
           expect(resp).not.toBeNull;
         });
         expect(httpTestingController).toBeTruthy();
-        const req = httpTestingController.expectOne('/order');
-        expect(req.request.method).toEqual('GET');
+        const req = httpTestingController.expectOne('http://localhost:4800/order/create');
+        expect(req.request.method).toEqual('POST');
         req.flush({} as KitchenOrderResponse);
       });
     });
@@ -43,7 +43,7 @@ describe('OrderService', () => {
           expect(resp).not.toBeNull;
         });
         expect(httpTestingController).toBeTruthy();
-        const req = httpTestingController.expectOne('/history');
+        const req = httpTestingController.expectOne('http://localhost:4800/order/history');
         expect(req.request.method).toEqual('GET');
         req.flush({} as KitchenOrderResponse);
       });
