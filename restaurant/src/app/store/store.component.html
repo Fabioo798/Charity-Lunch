@@ -1,6 +1,7 @@
 <div class="container">
  <div class="left-section">
   <h2>Ingredients</h2>
+  <p *ngIf="isErrorIngredients">Ops! There was a problem retrieving our ingredients! try again later</p>
   <ul class="ingredients-list">
    <li *ngFor="let ingredient of this.ingredients">
     {{ ingredient.name }} ({{ ingredient.quantity }})
@@ -10,6 +11,7 @@
 
  <div class="right-section">
   <h2>Order History</h2>
+  <p *ngIf="isErrorOrder">Ops! There was a problem retrieving our order list! try again later</p>
   <div class="order-list">
    <div class="order" *ngFor="let order of this.orders">
     <h3>ID: {{ order.id }}</h3>

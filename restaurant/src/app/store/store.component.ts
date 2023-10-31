@@ -14,6 +14,8 @@ import { registerLocaleData } from '@angular/common';
 export class StoreComponent implements OnInit {
   ingredients: Ingredient[] = [];
   orders: StoreOrder[] = [];
+  isErrorOrder: boolean = false;
+  isErrorIngredients: boolean = false;
 
   constructor(private storeService: StoreService) {
    }
@@ -29,8 +31,8 @@ export class StoreComponent implements OnInit {
      next: (response: StoreIngredientResponse) => {
       this.ingredients = response.results;
     },
-     error: (error) => {
-      console.log(error)
+     error: () => {
+      this.isErrorIngredients = true;
      }
    });
   }
@@ -41,8 +43,8 @@ export class StoreComponent implements OnInit {
       next: (response: StoreOrderResponse) => {
       this.orders = response.results;
     },
-     error: (error) => {
-      console.log(error);
+     error: () => {
+      this.isErrorOrder = true;
      }
    });
   }
