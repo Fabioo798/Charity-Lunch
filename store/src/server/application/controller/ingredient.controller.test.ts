@@ -64,8 +64,6 @@ describe('Given IngredientController class', () => {
         body: mockIngredient
       } as unknown as Request;
       
-      // eslint-disable-next-line no-debugger
-      debugger;
       
       await controller.createIngredient(req1, res, next);
       expect(res.status).toHaveBeenCalled();
@@ -126,8 +124,6 @@ describe('Given IngredientController class', () => {
          quantity: 2
         }]}
       } as unknown as Request;
-
-      console.log(req.body.ingredients[0].name);
       
       (mockRepo.search as jest.Mock).mockResolvedValue([mockIngredient]);
       

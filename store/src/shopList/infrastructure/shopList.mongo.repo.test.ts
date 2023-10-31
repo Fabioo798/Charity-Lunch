@@ -2,7 +2,7 @@ import { ShopListModel } from "../../server/domain/shoplist.schema.js";
 import ShopList from "../domain/shopList.model.js";
 import ShopListMongoRepo from "./shopList.mongo.repo.js";
 
-jest.mock('../../server/domain/ShopList.schema');
+jest.mock('../../server/domain/ShopList.schema.js');
 
 const mockModel = {
   create: jest.fn(),
