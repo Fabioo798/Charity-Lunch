@@ -15,6 +15,7 @@ export default {
     'model',
     'schema.ts',
     'interfaces.ts',
-    'express.server.ts'
+    'express.server.ts',
+    'socket.server.ts'
   ],
 };
