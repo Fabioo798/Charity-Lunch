@@ -1,5 +1,6 @@
 <div class="container">
- <h2>OUR DELICIUS PLATES</h2>
+ <h2>OUR DELICIOUS PLATES</h2>
+ <p *ngIf="isError">Ops! There was a problem retrieving our plates! try again later</p>
  <div *ngFor="let dish of this.dishes" class="dish">
   <h2>{{ dish.name }}</h2>
   <ul>

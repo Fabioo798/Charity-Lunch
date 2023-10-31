@@ -9,6 +9,7 @@ import { Dish, KitchenAllDishResponse } from 'src/interfaces/interfaces';
 })
 export class DishesComponent {
  dishes: Dish[];
+ isError: boolean = false
 
  constructor(private orderService: OrderService) {
   this.dishes = []
@@ -25,8 +26,8 @@ export class DishesComponent {
       this.dishes = response.results;
       console.log(this.dishes)
      },
-     error: (error) => {
-      console.log(error)
+     error: () => {
+      this.isError = true
      }
   });
   }
