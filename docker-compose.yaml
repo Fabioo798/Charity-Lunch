@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  store:
+    container_name: store
+    environment:
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+      - CLUSTER=${CLUSTER}
+      - NAME=${NAME1}
+      - URL=mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER}?retryWrites=true&w=majority
+      - SECRET="this is a secret"
+    image: store
+    networks:
+      - app-network
+    ports:
+      - 4900:4900
+    restart: always
+  kitchen:
+    container_name: kitchen
+    environment:
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+      - CLUSTER=${CLUSTER}
+      - NAME=${NAME}
+      - URL="mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER}?retryWrites=true&w=majority"
+      - SECRET="this is a secret"
+    image: kitchen
+    networks:
+      - app-network
+    ports:
+      - 4800:4800
+    restart: always
+  restaurant:
+    container_name: restaurant
+    image: restaurant
+    networks:
+      - app-network
+    ports:
+      - 80:80
+    restart: always
+networks:
+  app-network:
+    driver: bridge
