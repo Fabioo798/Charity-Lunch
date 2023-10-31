@@ -4,7 +4,7 @@ import createDebug from 'debug';
 import cors from 'cors';
 import { dbConnect } from './db/db.connect.js';
 
-const debug = createDebug('Charity-Lunch: express server');
+const debug = createDebug('CL-Store');
 
 const routes = [
   { endpoint: '/quantity', method: 'PATCH' },
@@ -37,7 +37,7 @@ export default class ExpressServer {
 
   start(port: number): void {
     dbConnect().then((mongoose) => {
-      this.app.listen(port, () => {
+      this.app.listen(port, '0.0.0.0',  () => {
         debug(
           `Server running on post ${port}`,
           mongoose.connection.db.databaseName

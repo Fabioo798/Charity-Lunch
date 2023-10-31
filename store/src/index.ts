@@ -12,8 +12,8 @@ import { ShopListModel } from "./server/domain/shoplist.schema.js";
 import ExpressServer from "./server/infrastructure/express.server.js";
 import IngredientRouter from "./server/infrastructure/routes/ingredient.router.js";
 import ShopListRouter from "./server/infrastructure/routes/shopList.router.js";
-import ShopListCreator from "./shopList/application/shopListCreator.js";
-import ShopListFinderAll from "./shopList/application/shopListFinderAll.js";
+import ShopListCreator from "./shopList/application/shoplistcreator.js";
+import ShopListFinderAll from "./shopList/application/shoplistfinderall.js";
 import ShopListMongoRepo from "./shopList/infrastructure/shopList.mongo.repo.js";
 
 
