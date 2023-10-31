@@ -11,7 +11,7 @@ export class WebSocketService {
   private socket: Socket;
 
   constructor() {
-    this.socket = io('http://localhost:4800'); // Replace with your backend URL
+    this.socket = io('http://34.74.133.150:4800'); // Replace with your backend URL
   }
 
   // Emit an event with optional data

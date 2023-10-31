@@ -14,19 +14,19 @@ export class OrderService {
   }
 
   placeOrder(): Observable<KitchenOrderResponse> {
-    const response = this.http.post<KitchenOrderResponse>('http://localhost:4800/order/create', {body: {dish: '', timesStamp: '', state: '' }});
+    const response = this.http.post<KitchenOrderResponse>('http://34.74.133.150:4800/order/create', {body: {dish: '', timesStamp: '', state: '' }});
     return response;
   }
   orderHistory(): Observable<KitchenOrdersArrResponse> {
-    return this.http.get<KitchenOrdersArrResponse>('http://localhost:4800/order/history');
+    return this.http.get<KitchenOrdersArrResponse>('http://34.74.133.150:4800/order/history');
   }
 
   getAllDishes(): Observable<KitchenAllDishResponse> {
-    return this.http.get<KitchenAllDishResponse>('http://localhost:4800/dish/dishes')
+    return this.http.get<KitchenAllDishResponse>('http://34.74.133.150:4800/dish/dishes')
   }
 
   filterOrder(state: string): Observable<Order[]> {
-    this.http.get<Order[]>(`http://localhost:4800/order/state=${state}`).subscribe({
+    this.http.get<Order[]>(`http://34.74.133.150:4800/order/state=${state}`).subscribe({
       next: (orders: Order[]) => {
         this.ordersInProgress$.next(orders); // Emit the new orders
       },

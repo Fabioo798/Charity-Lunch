@@ -11,15 +11,6 @@ Jornada de almuerzo ¡gratis! (Free Lunch Campaign) is a project aimed at organi
 - **Ingredient Management**: The kitchen requests the required ingredients from the food storage, either by checking availability or buying the missing ones from the farmers market.
 - **Inventory Tracking**: The food storage keeps track of the available ingredients, the purchase history from the farmers market, and the quantity used for each ordered dish.
 
-
-
-## Access the application:
-
-  - Frontend UI: Open your browser and visit `http://localhost:4200`
-  - Backend APIs:
-  - Kitchen Service: `http://localhost:4800`
-  - Food Storage Service: `http://localhost:4900`
-
 ## Usage
 
 - Press the "Order Dish" button to request a new dish from the kitchen. The system supports handling massive dish requests.

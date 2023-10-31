@@ -11,12 +11,12 @@ export class StoreService {
   constructor( public http: HttpClient) { }
 
   getIngredients(): Observable<StoreIngredientResponse>{
-   const response = this.http.get<StoreIngredientResponse>('http://localhost:4900/ingredient/ingredients')
+   const response = this.http.get<StoreIngredientResponse>('http://34.74.133.150:4900/ingredient/ingredients')
    return response
   }
 
   getOrderHistory(): Observable<StoreOrderResponse> {
-   const response = this.http.get<StoreOrderResponse>('http://localhost:4900/shoplist/shoplists');
+   const response = this.http.get<StoreOrderResponse>('http://34.74.133.150:4900/shoplist/shoplists');
    return response;
   }
 }
