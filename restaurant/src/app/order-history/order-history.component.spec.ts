@@ -61,7 +61,7 @@ describe('OrderHistoryComponent', () => {
   });
 
   it('should handle error from OrderService', () => {
-    spyOn(orderService, 'orderHistory').and.returnValue(throwError('Error'));
+    spyOn(orderService, 'orderHistory').and.returnValue(throwError(() => 'Error'));
 
     component.ngOnInit();
 
