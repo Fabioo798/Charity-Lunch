@@ -13,6 +13,7 @@ import localeEsExtra from '@angular/common/locales/extra/es';
 })
 export class OrderHistoryComponent {
  orders: Order[];
+ isError: Boolean = false;
 
   constructor(private orderService: OrderService) {
    this.orders = [];
@@ -30,8 +31,8 @@ export class OrderHistoryComponent {
       this.orders = response.results;
       console.log(this.orders)
      },
-     error: (error) => {
-      console.log(error)
+     error: () => {
+      this.isError = true;
      }
   });
   }
