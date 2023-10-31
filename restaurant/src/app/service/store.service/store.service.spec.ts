@@ -25,7 +25,7 @@ describe('StoreService', () => {
       expect(response).toEqual(mockResponse);
     });
 
-    const req = httpMock.expectOne('http://localhost:4900/ingredient/ingredients');
+    const req = httpMock.expectOne('http://34.74.133.150:4900/ingredient/ingredients');
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
@@ -37,7 +37,7 @@ describe('StoreService', () => {
       expect(response).toEqual(mockResponse);
     });
 
-    const req = httpMock.expectOne('http://localhost:4900/shoplist/shoplists');
+    const req = httpMock.expectOne('http://34.74.133.150:4900/shoplist/shoplists');
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
